@@ -98,10 +98,10 @@ def negative_d(p, a33):
         ai = Complex(r * cos(corner), r * sin(corner))
         bi = (-p * Complex(cos(corner), sin(corner)).sopr()) / (3*ai.r)
 
-        print(f"a{i} = cqrt(|a^3|)(cos({a33.phi} / 3 + 120) "
-              f"+ isin({a33.phi} / 3 + 120) =", ai)
-        print(f"b{i} = -p / (3*a1) = -p * (cos({a33.phi} / 3 + 120) "
-              f"+ isin({a33.phi} / 3 + 120) / (3*|a1|) =", bi)
+        print(f"a{i} = cqrt(|a^3|)(cos({a33.phi} / 3 + {add_corner}) "
+              f"+ isin({a33.phi} / 3 + {add_corner}) =\n=", ai, end="\n\n")
+        print(f"b{i} = -p / (3*a1) = -p * (cos({a33.phi} / 3 + {add_corner}) "
+              f"+ isin({a33.phi} / 3 + {add_corner}) / (3*|a1|) =\n=", bi, end="\n\n")
 
         return ai + bi
 
