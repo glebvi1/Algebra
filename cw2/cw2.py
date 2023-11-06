@@ -5,6 +5,10 @@ def rd(x):
     return round(x, 4)
 
 
+def cqrt(x):
+    return x ** (1/3) if x >= 0 else -((-x) ** (1/3))
+
+
 class Complex:
     def __init__(self, a, b=0.0):
         self.a = rd(a)
@@ -74,7 +78,7 @@ class Complex:
 
 
 def positive_d(p, a33):
-    a1: float = rd(a33.a ** (1/3))
+    a1: float = rd(cqrt(a33.a))
     b1: float = rd(-p.a / (3*a1))
     print(f"a1 = cqrt(a^3) =", a1)
     print(f"b1 = -p / (3*a1) = {-p.a} / (3*{a1}) =", b1)
