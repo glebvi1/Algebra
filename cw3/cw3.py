@@ -85,12 +85,13 @@ def discriminant(p, q):
 
 def get_xi(a33: Complex, i):
     add_corner = 0 if i == 1 else 120
-    corner = round(a33.phi / 3 + add_corner, 4)
+    corner = rd(a33.phi / 3 + add_corner)
     rcorner = radians(a33.phi / 3 + add_corner)
     ai = Complex(cos(rcorner), sin(rcorner)) * (a33.r ** (1 / 3))
     bi = Complex(cos(rcorner), -sin(rcorner)) * (-p) / (3 * ai.r)
     print(f"a{i} = cqrt(|a^3|)(cos({corner}) + isin({corner})) = {ai.trigonom()} = {ai}")
-    print(f"b{i} = -p / (3*a{i}) = {-p} * ({bi.trigonom()}) / (3*{ai.r}) = {bi.trigonom()} = {bi}")
+    print(f"b{i} = -p / (3*a{i}) = ({-p}) * ({ai.sopr()}) / (3*{ai.r}*{ai.r}) = \n"
+          f"({-p * ai.sopr()}) / {rd(3*ai.r**2)} = {bi}")
     print(f"z{i} = a{i} + b{i} = {ai + bi}", end="\n\n")
     return ai + bi
 
